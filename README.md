@@ -1,1 +1,2 @@
-# ICPC校集训队资源
+# USST-SIW ICPC校集训队资源
+
