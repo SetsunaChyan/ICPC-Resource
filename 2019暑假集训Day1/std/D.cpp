@@ -2,6 +2,7 @@
 using namespace std;
 
 int n,a[10],dp[1000005][9],now,from[1000005][9],sum;
+int ans[1000005],tot,ss;
 
 void print(int x,int y)
 {
@@ -9,23 +10,19 @@ void print(int x,int y)
     if(~from[x][y])
     {
         print(x-1,(y-from[x][y]+9)%9);
-        printf("%d",from[x][y]);
+        ans[tot++]=from[x][y];
+        ss+=from[x][y];
     }
     else print(x-1,y);
 }
 
 void solve()
 {
-    sum=0;
+    sum=tot=ss=0;
     for(int i=0;i<10;i++)
     {
         scanf("%d",&a[i]);
         sum+=a[i];
-    }
-    if(sum==a[0])
-    {
-        printf("0\n");
-        return;
     }
     for(int i=0;i<=sum;i++)
         for(int j=0;j<9;j++)
@@ -35,17 +32,25 @@ void solve()
         for(int j=0;j<a[i];j++)
         {
             now++;
-            for(int k=0;k<=9;k++)
+            for(int k=0;k<9;k++)
                 if(dp[now-1][(k-i+9)%9]+1>=dp[now-1][k])
                     dp[now][k]=dp[now-1][(k-i+9)%9]+1,from[now][k]=i;
                 else
                     dp[now][k]=dp[now-1][k],from[now][k]=-1;
         }
     if(dp[now][0]>0)
+    {
         print(now,0);
+        if(ss==0)
+        {
+            printf("0\n");
+            return;
+        }
+        for(int i=0;i<tot;i++) printf("%d",ans[i]);
+        printf("\n");
+    }
     else
-        printf("-1");
-    printf("\n");
+        printf("-1\n");
 }
 
 int main()
