@@ -33,7 +33,7 @@ void solve()
         {
             now++;
             for(int k=0;k<9;k++)
-                if(dp[now-1][(k-i+9)%9]+1>=dp[now-1][k])
+                if(dp[now-1][(k-i+9)%9]+1>dp[now-1][k])
                     dp[now][k]=dp[now-1][(k-i+9)%9]+1,from[now][k]=i;
                 else
                     dp[now][k]=dp[now-1][k],from[now][k]=-1;
