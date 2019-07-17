@@ -23,7 +23,7 @@ int main()
 			if(m>=cost)
 			{
 				pc.pop();
-				pc.push(-pp[c.top().second]-cc[c.top().second]);
+				pc.push(-pp[c.top().second]+cc[c.top().second]);
 				h[c.top().second]=1;
 				m-=cost;
 			}
