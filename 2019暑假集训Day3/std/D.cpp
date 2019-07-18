@@ -19,7 +19,7 @@ int main()
 		while(!c.empty()&&h[c.top().second])c.pop();
 		if(-pc.top()+-c.top().first<-p.top().first)
 		{
-			ll cost=pc.top()+-c.top().first;
+			ll cost=-pc.top()+-c.top().first;
 			if(m>=cost)
 			{
 				pc.pop();
