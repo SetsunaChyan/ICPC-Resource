@@ -135,13 +135,12 @@ void solve()
         int op,x,y,c;
         scanf("%d%d%d%d",&op,&x,&y,&c);
         if(op==4) printf("%d\n",query(1,1,n,x,y,c-1));
-        else modify(1,1,n,x,y,op,c);
+        else modify(1,1,n,x,y,op,c%mod);
     }
 }
 
 int main()
 {
-    scanf("%d%d",&n,&m);
-    solve();
+    while(~scanf("%d%d",&n,&m)&&n&&m) solve();
     return 0;
 }
